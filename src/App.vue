@@ -1,47 +1,112 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div class="container">
+    <br />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <!-- start nav bar -->
+
+    <NavBar>
+      <template #headerLogo>
+        <ShowImage />
+      </template>
+    </NavBar>
+    <!-- end nav bar -->
+    <br />
+    <PostForm :categories="categories" :postData="postData" @createPost="createPost" />
+    <br />
+    <br />
+    <div class="row">
+      <PostTable @delete="deletePost" :postData="posts" />
     </div>
-  </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+    <br />
+    <br />
+
+    <!-- start footer -->
+
+    <FooterNav>
+      <template #footerLogo>
+        <ShowImage />
+      </template>
+    </FooterNav>
+
+    <!-- end footer -->
+  </div>
 </template>
+<script>
+import NavBar from './components/NavBar.vue'
+import FooterNav from './components/FooterNav.vue'
+import PostTable from './components/PostTable.vue'
+import ShowImage from './components/ShowImage.vue'
+import PostForm from './components/PostForm.vue'
+export default {
+  // create a reactive property
+  components: {
+    NavBar,
+    FooterNav,
+    PostTable,
+    ShowImage,
+    PostForm
+  },
+  data() {
+    return {
+      appTitle: 'v-model directive',
 
+      postData: {
+        id: '',
+        title: '',
+        categoryId: '',
+        post_content: ''
+      },
+      categories: [],
+
+      posts: []
+    }
+  },
+
+  methods: {
+    deletePost(item) {
+      const filteredPost = this.posts.filter((post) => post.id !== item.id)
+      this.posts = filteredPost
+    },
+
+    createPost() {
+      const data = this.postData
+      this.posts.push({
+        id: data?.id,
+        title: data?.title
+      })
+      this.postData.id = ''
+      this.postData.title = ''
+      this.postData.categoryId = ''
+    },
+
+    fetchDataFromServer() {
+      return new Promise((resolve, reject) => {
+        resolve([
+          {
+            id: 1,
+            name: 'typescript'
+          },
+          {
+            id: 2,
+            name: 'Vue'
+          }
+        ])
+      })
+    }
+  },
+  async mounted() {
+    const data = await this.fetchDataFromServer()
+    this.categories = data
+  }
+}
+</script>
 <style scoped>
-header {
-  line-height: 1.5;
+.img-tutorial-1 {
+  border-radius: 20px;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.img-tutorial-2 {
+  border-radius: 50px;
 }
 </style>
