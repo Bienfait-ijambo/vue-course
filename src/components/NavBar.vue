@@ -3,7 +3,8 @@
     <div class="container-fluid">
       <!-- logo here  -->
       <slot name="headerLogo"></slot>
-      <a class="navbar-brand" href="#">Navbar w/ text</a>
+      <RouterLink  class="navbar-brand" to="/">App</RouterLink>
+     
       <button
         class="navbar-toggler"
         type="button"
@@ -17,18 +18,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <RouterLink  class="nav-link" to="/">HomePage</RouterLink>
+     
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <RouterLink  class="nav-link" to="/about">About page</RouterLink>
           </li>
         </ul>
         <span class="navbar-text">
-          Navbar
+          <RouterLink style="color:blue"  class="nav-link" to="/auth">Register</RouterLink>
           <slot name="navbar"></slot>
         </span>
       </div>
