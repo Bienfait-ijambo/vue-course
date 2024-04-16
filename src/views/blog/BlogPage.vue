@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+      <br/>
       <NavBar></NavBar>
     <main>
       <RouterView />

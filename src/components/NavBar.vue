@@ -20,18 +20,25 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         
           <li class="nav-item">
-            <RouterLink  class="nav-link" to="/">HomePage</RouterLink>
+            <RouterLink  class="nav-link links" to="/">HomePage</RouterLink>
      
           </li>
           <li class="nav-item">
-            <RouterLink  class="nav-link" to="/about">About page</RouterLink>
+            <RouterLink  class="nav-link links"  to="/about">About page</RouterLink>
           </li>
         </ul>
         <span class="navbar-text">
-          <RouterLink style="color:blue"  class="nav-link" to="/auth">Register</RouterLink>
+          <RouterLink   class="nav-link links" to="/auth">Register</RouterLink>
           <slot name="navbar"></slot>
         </span>
       </div>
     </div>
   </nav>
 </template>
+<style scoped>
+
+.links{
+  font-weight: bold;
+  color :blue;
+}
+</style>

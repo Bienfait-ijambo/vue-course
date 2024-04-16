@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <ul>
-        <li><RouterLink to="/dashboard">Dashboard</RouterLink></li>
+        <li><RouterLink to="/admin">Dashboard</RouterLink></li>
         <li><RouterLink to="/users">users</RouterLink></li>
         <li><RouterLink to="/settings">settings</RouterLink></li>
 
