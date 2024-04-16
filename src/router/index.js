@@ -14,10 +14,12 @@ const routes = [
     path: '/admin',
     component: () => import('@/views/admin/AdminPage.vue'),
     children: [
-      { path: '', component: () => import('@/views/admin/DashboardPage.vue') },
+      { 
+       path: '',
+       component: () => import('@/views/admin/DashboardPage.vue') 
+      },
       { path: '/settings', component: () => import('@/views/admin/SettingPage.vue') },
-      { path: '/users', component: () => import('@/views/admin/UserPage.vue') },
-      
+      { path: '/users', component: () => import('@/views/admin/UserPage.vue') }
     ]
   },
 
