@@ -1,44 +1,53 @@
 <template>
-  <div>
-    <h1>
-      {{ appTitle }}
-    </h1>
-    {{ users }}
+  <div class="container">
+    <br/>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <!-- {{ users }} -->
+        <UserList :users="users" @seeUserDetails="seeUserDetails"/>
+        <button @click="fetchUsers">fetch users</button>
+      </div>
+      <div class="col-md-2"></div>
 
-    {{ count }}
-    <button type="button" @click="addUser">count</button>
 
+    </div>
   </div>
 </template>
 <script>
-import { useCounterStore } from '@/stores/counterStore'
-import { mapStores, mapState, mapActions } from 'pinia'
+import { useCounterStore } from '@/store/counterStore';
+import {useUserStore} from '@/store/userStore';
+import { mapState,mapActions } from 'pinia';
+import UserList from '@/components/UserList.vue';
 export default {
+  components:{
+    UserList
+  },
   data() {
     return {
-      appTitle: 'Home  Page'
+      appTitle: 'Home  Page',
+     
     }
   },
-  computed: {
-    // other computed properties : A computed property automatically tracks its reactive dependencies.
-    // ...
-    // gives access to this.counterStore and this.userStore
-    ...mapStores(useCounterStore),
-    // gives read access to this.count and this.double
-    ...mapState(useCounterStore, ['count', 'double','users'])
+  // track reactive property 
+  computed:{
+   ...mapState(useUserStore,['users'])
   },
-  methods: {
-    // gives access to this.increment()
-    ...mapActions(useCounterStore, ['increment','fetchData']),
+  methods:{
+    // this we need to call it 
+    // ...mapActions(useCounterStore,['increment','addUsers'])
+    ...mapActions(useUserStore,['fetchUsers','fetchSingleUser']),
+    seeUserDetails(userId){
+      
+      this.$router.push('/user/'+userId)
 
-    addUser(){
-      this.users.push({name:"alert"})
     }
-  
-  },
-  mounted() {
+    
  
-      this.fetchData()
+  },
+  async mounted(){
+    await this.fetchUsers()
   }
+ 
 }
 </script>

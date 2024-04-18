@@ -6,7 +6,10 @@ const routes = [
     component: () => import('@/views/blog/BlogPage.vue'),
     children: [
       { path: '', component: () => import('@/views/blog/HomePage.vue') },
-      { path: '/about', component: () => import('@/views/blog/AboutPage.vue') }
+      { path: '/about', component: () => import('@/views/blog/AboutPage.vue')},
+      { path: '/user/:userId', component: () => import('@/views/blog/UserDetailPage.vue')},
+    
+    
     ]
   },
 

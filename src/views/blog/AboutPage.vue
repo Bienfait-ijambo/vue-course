@@ -1,14 +1,22 @@
 
 <template>
-    <h1>
+    <div>
+        <h1>
         {{ appTitle }}
-        <br/>
-        {{ users }}
+       
     </h1>
+    <br/>
+    <h4>
+        {{ users }}
+    </h4>
+    <br/>
+    <br/>
+
+    </div>
 </template>
 <script>
-import { useCounterStore } from '@/stores/counterStore'
-import { mapStores, mapState, mapActions } from 'pinia'
+import { useCounterStore } from '@/store/counterStore';
+import { mapState,mapActions } from 'pinia';
 export default{
     data(){
         return{
@@ -16,7 +24,8 @@ export default{
         }
     },
     computed:{
-            ...mapState(useCounterStore,['users'])
+        ...mapState(useCounterStore,['users'])
     }
+   
 }
 </script>
