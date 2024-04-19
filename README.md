@@ -1,14 +1,14 @@
-# vue-course
+# vue 3 Course
 
-This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+## Pinia 
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Customize configuration
+### Clone the project
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+```sh
+git clone https://github.com/Bienfait-ijambo/vue-course/tree/pinia-lesson
+```
 
 ## Project Setup
 
