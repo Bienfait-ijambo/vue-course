@@ -14,14 +14,16 @@ export const useUserStore = defineStore('user', {
   actions: {
     async fetchUsers() {
       const res=await fetch('http://localhost:3000/users',{
-        headers: {'Content-Type': 'application/json',method:'GET'},
+        method:'GET',
+        headers: {'Content-Type': 'application/json'},
       })
       const data=await res.json()
       this.users=data
     },
     async fetchSingleUser(id) {
         const res=await fetch(`http://localhost:3000/users/${id}`,{
-          headers: {'Content-Type': 'application/json',method:'GET'},
+          method:'GET',
+          headers: {'Content-Type': 'application/json'},
         })
         const data=await res.json()
         if(data.length>0){
