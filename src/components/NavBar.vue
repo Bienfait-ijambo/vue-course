@@ -1,37 +1,24 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <!-- logo here  -->
-      <slot name="headerLogo"></slot>
-      <RouterLink  class="navbar-brand" to="/">App</RouterLink>
-     
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarText"
-        aria-controls="navbarText"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-          <li class="nav-item">
-            <RouterLink  class="nav-link" to="/">HomePage</RouterLink>
-     
-          </li>
-          <li class="nav-item">
-            <RouterLink  class="nav-link" to="/about">About page</RouterLink>
-          </li>
-        </ul>
-        <span class="navbar-text">
-          <RouterLink style="color:blue"  class="nav-link" to="/auth">Register</RouterLink>
-          <slot name="navbar"></slot>
-        </span>
-      </div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Blog App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+      
+        <li class="nav-item">
+            <RouterLink class="nav-link" to="/">Home</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink class="nav-link" to="/about">About</RouterLink>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 </template>

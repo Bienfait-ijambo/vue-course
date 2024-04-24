@@ -6,7 +6,6 @@ import { RouterLink, RouterView } from 'vue-router'
   
 
  <div class="container">
-  <RouterView />
+  <h1>About page</h1>
  </div>
 </template>
-
