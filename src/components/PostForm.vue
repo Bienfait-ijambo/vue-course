@@ -33,7 +33,6 @@ export default {
             await this.createPost(this.post)
             this.initInputs()
             await this.fetchPost()
-            // const [createPostData,_]=await Promise.all([this.createPost(this.post),this.fetchPost()])
         },
         initInputs(){
             this.post.title=""

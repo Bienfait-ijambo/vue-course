@@ -22,7 +22,24 @@ const router = createRouter({
           path: '/post/:id',
           name: 'single-post',
           component: () => import('../views/post/SinglePostPage.vue')
-        }
+        },
+        {
+          path: '/learn-composition-api',
+          name: 'learn-composition-api',
+          component: () => import('../views/composition-api/LearnCompositionApi.vue')
+        },
+        // Refactored pages to composition Api
+
+        {
+          path: '/reactor_home',
+          name: 'reactor_home',
+          component: () => import('../views/post/RefactorPostPage.vue')
+        },
+        {
+          path: '/refactor_post/:id',
+          name: 'refactor_post',
+          component: () => import('../views/post/RefactorSinglePostPage.vue')
+        },
       ]
     }
   ]
